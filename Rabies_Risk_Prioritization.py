@@ -15,7 +15,6 @@ from sklearn import neighbors,cluster,model_selection
 from sklearn.model_selection import StratifiedKFold, cross_val_score
 from sklearn.metrics import confusion_matrix, classification_report
 from sklearn.feature_selection import SelectFromModel
-#get_ipython().magic('matplotlib inline')
 
 risk_data = []
 
@@ -32,8 +31,6 @@ with open("Risk_Data.csv", "rt") as csvfile:
                 except:
                     pass
         risk_data.append(row)
-        
-print("num communes: " + str(len(risk_data)))
 
 labeled = []
 unlabeled = []
@@ -43,9 +40,6 @@ for i in risk_data:
         labeled.append(i)
     else:
         unlabeled.append(i)
-
-print(len(unlabeled))
-print(len(labeled))
 
 def test_classifier(clf, features, n_splits=3):
     """
